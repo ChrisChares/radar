@@ -1,0 +1,13 @@
+PODS:
+  - Expecta (0.3.2)
+  - Underscore.m (0.2.1)
+
+DEPENDENCIES:
+  - Expecta
+  - Underscore.m
+
+SPEC CHECKSUMS:
+  Expecta: ee641011fe10aa1855d487b40e4976dac50ec342
+  Underscore.m: f99c166a9fdccfb5069085b6b4263c04b817fc9f
+
+COCOAPODS: 0.35.0
