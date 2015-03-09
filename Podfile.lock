@@ -1,13 +1,23 @@
 PODS:
   - Expecta (0.3.2)
+  - Expecta+OCMock (1.0.0):
+    - Expecta
+    - OCMock (~> 2.2.2)
+  - OCMock (2.2.4)
+  - Specta (0.3.2)
   - Underscore.m (0.2.1)
 
 DEPENDENCIES:
   - Expecta
+  - Expecta+OCMock (~> 1.0.0)
+  - Specta
   - Underscore.m
 
 SPEC CHECKSUMS:
   Expecta: ee641011fe10aa1855d487b40e4976dac50ec342
+  Expecta+OCMock: 3efece0c462954fbcc553f662b865999745ecd9c
+  OCMock: 6db79185520e24f9f299548f2b8b07e41d881bd5
+  Specta: 698a58ffa5ec948327d3b92eab50ca58d7f4fbe8
   Underscore.m: f99c166a9fdccfb5069085b6b4263c04b817fc9f
 
 COCOAPODS: 0.35.0

@@ -10,6 +10,8 @@ end
 target 'radarTests' do
     
 pod 'Expecta'
+pod 'Specta'
+pod 'Expecta+OCMock', '~> 1.0.0'
 
 end
 
