@@ -47,9 +47,12 @@
             return beacon.proximity <= radRegion.proximity;
         }
     })
-    .each(^(id beacon) {
-        RADBeaconRegion *radRegion = [RADBeaconRegion regionFromCLBeaconRegion:region];
-        [self.delegate locationManager:self.locationManager didEnterRegion:radRegion];
+    .each(^(CLBeacon *beacon) {
+        RADBeaconRegion *beaconSpecificRegion = [RADBeaconRegion regionFromCLBeaconRegion:region
+                                                                                withMajor:beacon.major
+                                                                                 andMinor:beacon.minor];
+        [self.delegate locationManager:self.locationManager
+                        didEnterRegion:beaconSpecificRegion];
     });
     
     if ( [self.delegate respondsToSelector:@selector

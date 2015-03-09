@@ -15,4 +15,7 @@
 
 
 + (RADBeaconRegion *)regionFromCLBeaconRegion:(CLBeaconRegion *)region;
+
++ (RADBeaconRegion *)regionFromCLBeaconRegion:(CLBeaconRegion *)region withMajor:(NSNumber *)major andMinor:(NSNumber *)minor;
+
 @end

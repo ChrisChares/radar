@@ -18,11 +18,11 @@
 @property NSMutableArray *monitoredBeaconRegions;
 
 - (void)startMonitoringForBeaconRegion:(RADBeaconRegion *)region;
-
-//not yet supported
-//- (void)stopMonitoringForBeaconRegion:(RADBeaconRegion *)region;
+- (void)stopMonitoringForBeaconRegion:(RADBeaconRegion *)region;
 
 
+
+//functions public for unit testing
 - (RADBeaconRegion *)radRegionForCLBeaconRegion:(CLBeaconRegion *)region;
 
 @end
