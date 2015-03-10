@@ -118,14 +118,13 @@
 		83628AEE1AA8D22900FE3088 /* radar */ = {
 			isa = PBXGroup;
 			children = (
+				835A580B1AAF4DAB000194A4 /* RDInterpreter.h */,
+				835A580C1AAF4DAB000194A4 /* RDInterpreter.m */,
 				83628B081AA8D2AA00FE3088 /* RDBeaconRegion.h */,
 				83628B091AA8D2AA00FE3088 /* RDBeaconRegion.m */,
 				83628B0A1AA8D2AA00FE3088 /* Radar.h */,
 				83628B0B1AA8D2AA00FE3088 /* Radar.m */,
-				835A58091AAEB2D2000194A4 /* README.md */,
 				83628AEF1AA8D22900FE3088 /* Supporting Files */,
-				835A580B1AAF4DAB000194A4 /* RDInterpreter.h */,
-				835A580C1AAF4DAB000194A4 /* RDInterpreter.m */,
 			);
 			path = radar;
 			sourceTree = "<group>";
@@ -133,6 +132,7 @@
 		83628AEF1AA8D22900FE3088 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				835A58091AAEB2D2000194A4 /* README.md */,
 				83628AF01AA8D22900FE3088 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -142,9 +142,9 @@
 			isa = PBXGroup;
 			children = (
 				83628B101AA8D36500FE3088 /* RadarTests.m */,
+				835A58161AAF5520000194A4 /* RDInterpreterTests.m */,
 				835A58071AAE8AA0000194A4 /* RDBeaconRegionTests.m */,
 				83628AFC1AA8D22900FE3088 /* Supporting Files */,
-				835A58161AAF5520000194A4 /* RDInterpreterTests.m */,
 			);
 			path = radarTests;
 			sourceTree = "<group>";

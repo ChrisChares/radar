@@ -38,8 +38,6 @@
                inRegion:(RDBeaconRegion *)region {
     
     RDInterpreter *interpreter = [RDInterpreter new];
-    
-    
     RDInterpretedResult *result = [interpreter resultForBeacons:beacons inRegion:region occupiedRegions:self.currentlyOccupiedRegions[region.identifier]];
     
     _.arrayEach(result.enteredRegions, ^(RDBeaconRegion *enteredRegion) {
@@ -54,7 +52,6 @@
         [self.currentlyOccupiedRegions[region.identifier] removeObject:exitedRegion];
         //send a didExit update
         [self.delegate locationManager:self.locationManager didExitRegion:exitedRegion];
-        
     });
     
     //delegate still receives the didRangeBeacons call
@@ -64,7 +61,5 @@
         [self.delegate locationManager:self.locationManager didRangeBeacons:beacons inRegion:region];
     }
 }
-
-
 
 @end

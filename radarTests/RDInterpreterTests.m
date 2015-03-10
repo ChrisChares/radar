@@ -27,6 +27,7 @@
     _interpreter = [RDInterpreter new];
     CLBeaconRegion *clRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[NSUUID UUID] identifier:@"shit"];
     _region = [RDBeaconRegion regionFromCLBeaconRegion:clRegion];
+    _region.proximity = CLProximityNear;
 
 }
 
@@ -41,16 +42,51 @@
     RDBeaconRegion *region1 = [RDBeaconRegion regionFromCLBeaconRegion:clRegion];
     NSArray *array = @[region1];
     RDBeaconRegion *region2 = [RDBeaconRegion regionFromCLBeaconRegion:clRegion];
-    
     expect([array containsObject:region2]).to.beTruthy();
 }
 
 
-- (void)testInterpreter {
+- (void)testInterpreterNotNil {
     
     RDInterpretedResult *result = [_interpreter resultForBeacons:nil inRegion:_region occupiedRegions:nil];
-    
     expect(result).toNot.beNil();
+}
+
+- (void)testBeaconOutOfRange {
+    //this beacon will be outside the distance threshold of the region
+    id beacon = [self mockBeaconWithProximity:CLProximityFar];
+    RDInterpretedResult *result = [_interpreter resultForBeacons:@[beacon] inRegion:_region occupiedRegions:@[]];
+    expect(result.enteredRegions.count).to.equal(0);
+}
+
+- (void)testSimpleEnterRegion {
+    id beacon = [self mockBeaconWithProximity:CLProximityImmediate];
+    RDInterpretedResult *result = [_interpreter resultForBeacons:@[beacon] inRegion:_region occupiedRegions:@[]];
+    expect(result.enteredRegions.count).to.equal(1);
+}
+
+- (void)testMultipleEnterRegion {
+    id beacon1 = [self mockBeaconWithProximity:CLProximityImmediate];
+    id beacon2 = [self mockBeaconWithProximity:CLProximityNear];
+    
+    RDInterpretedResult *result = [_interpreter resultForBeacons:@[beacon1, beacon2] inRegion:_region occupiedRegions:@[]];
+    expect(result.enteredRegions.count).to.equal(2);
+}
+
+
+
+- (id)mockBeaconWithProximity:(CLProximity)proximity {
+    
+    int major = arc4random_uniform(255);
+    int minor = arc4random_uniform(255);
+    
+    id beacon = [OCMockObject mockForClass:[CLBeacon class]];
+    OCMStub([beacon major]).andReturn(@(major));
+    OCMStub([beacon minor]).andReturn(@(minor));
+    OCMStub([beacon proximityUUID]).andReturn(_region.proximityUUID);
+    OCMStub([beacon proximity]).andReturn(proximity);
+    
+    return beacon;
 }
 
 @end
