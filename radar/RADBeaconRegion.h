@@ -11,11 +11,11 @@
 
 @interface RADBeaconRegion : CLBeaconRegion
 
+//beacon must be this close or closer to match the region
 @property CLProximity proximity;
 
-
 + (RADBeaconRegion *)regionFromCLBeaconRegion:(CLBeaconRegion *)region;
-
-+ (RADBeaconRegion *)regionFromCLBeaconRegion:(CLBeaconRegion *)region withMajor:(NSNumber *)major andMinor:(NSNumber *)minor;
-
++ (RADBeaconRegion *)regionFromCLBeaconRegion:(CLBeaconRegion *)region
+                                    withMajor:(NSNumber *)major
+                                     andMinor:(NSNumber *)minor;
 @end
