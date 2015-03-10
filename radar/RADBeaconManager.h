@@ -17,12 +17,14 @@
 @property CLLocationManager *locationManager;
 @property NSMutableArray *monitoredBeaconRegions;
 
+@property NSMutableArray *currentlyOccupiedRegions;
+
 - (void)startMonitoringForBeaconRegion:(RADBeaconRegion *)region;
 - (void)stopMonitoringForBeaconRegion:(RADBeaconRegion *)region;
 
 
 
 //functions public for unit testing
-- (RADBeaconRegion *)radRegionForCLBeaconRegion:(CLBeaconRegion *)region;
+//- (RADBeaconRegion *)radRegionForCLBeaconRegion:(CLBeaconRegion *)region;
 
 @end

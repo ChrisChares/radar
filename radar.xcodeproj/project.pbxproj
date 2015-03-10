@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3DFB23A673463219AEB15A6D /* libPods-radarTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D047D1EC6EE0EFBBE208C7 /* libPods-radarTests.a */; };
 		76D701E65920FD2902BFA0C2 /* libPods-radar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B4095C0D3766B4F975FCC7 /* libPods-radar.a */; };
+		835A58081AAE8AA0000194A4 /* RADBeaconRegionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 835A58071AAE8AA0000194A4 /* RADBeaconRegionTests.m */; };
 		83628AF21AA8D22900FE3088 /* radar.h in Headers */ = {isa = PBXBuildFile; fileRef = 83628AF11AA8D22900FE3088 /* radar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		83628AF81AA8D22900FE3088 /* radar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83628AEC1AA8D22900FE3088 /* radar.framework */; };
 		83628B0C1AA8D2AA00FE3088 /* RADBeaconRegion.h in Headers */ = {isa = PBXBuildFile; fileRef = 83628B081AA8D2AA00FE3088 /* RADBeaconRegion.h */; };
@@ -33,6 +34,7 @@
 		389C5304AEC1E0440A46686A /* Pods-radarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-radarTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-radarTests/Pods-radarTests.release.xcconfig"; sourceTree = "<group>"; };
 		59D047D1EC6EE0EFBBE208C7 /* libPods-radarTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-radarTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6644F46A467E7A7E2026E066 /* Pods-radar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-radar.release.xcconfig"; path = "Pods/Target Support Files/Pods-radar/Pods-radar.release.xcconfig"; sourceTree = "<group>"; };
+		835A58071AAE8AA0000194A4 /* RADBeaconRegionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RADBeaconRegionTests.m; sourceTree = "<group>"; };
 		83628AEC1AA8D22900FE3088 /* radar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = radar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83628AF01AA8D22900FE3088 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83628AF11AA8D22900FE3088 /* radar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = radar.h; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			children = (
 				83628B101AA8D36500FE3088 /* RADBeaconManagerTests.m */,
 				83628AFC1AA8D22900FE3088 /* Supporting Files */,
+				835A58071AAE8AA0000194A4 /* RADBeaconRegionTests.m */,
 			);
 			path = radarTests;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83628B111AA8D36500FE3088 /* RADBeaconManagerTests.m in Sources */,
+				835A58081AAE8AA0000194A4 /* RADBeaconRegionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
