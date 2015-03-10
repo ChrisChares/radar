@@ -12,8 +12,10 @@ Making iBeacon region monitoring work the way it should
 CoreLocation iBeacon API's don't behave quite the way you would think.  For example, say you want to get
 notified every time you encounter any beacons with a certain UUID.  
 
-    CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:beaconUUID identifier:@"shit"]
-    [locationManager startMonitoringForRegion:region];
+```objective-c
+CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:beaconUUID identifier:@"shit"]
+[locationManager startMonitoringForRegion:region];
+```
 
 You now walk in the vicinity of one of those beacons and your delegate's locationManager:didEnterRegion:
 is called.  
