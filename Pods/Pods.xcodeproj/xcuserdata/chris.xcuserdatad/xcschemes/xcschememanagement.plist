@@ -14,11 +14,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-radarTests-Expecta+OCMock.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-radarTests-Expecta.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,37 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>095FCC51D45511F0AC8BCEE8</key>
+		<key>0812BE718483987AB5869FF0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>10FDE9C003ED99023E5697E9</key>
+		<key>4C9037389AE8EC591D1F4A1F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>15E2D209AD05A0D12BC95D12</key>
+		<key>70B31C1177802D465204D3F4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>77D6F9EF83462C8642D64F3F</key>
+		<key>8C0F9EFB261F57818164107F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>990AA4AEB320CBC72D5D0B4C</key>
+		<key>B2014AAFBBAC49E2F8564167</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BFDED28D763D22BD92C863F1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F19CF50772F4E212200506A3</key>
+		<key>BA7A2C2D781DCE4DBBD5E7AB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

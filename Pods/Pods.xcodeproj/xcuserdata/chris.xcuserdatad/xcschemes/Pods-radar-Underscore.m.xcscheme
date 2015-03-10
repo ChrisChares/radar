@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "10FDE9C003ED99023E5697E9"
+               BlueprintIdentifier = "70B31C1177802D465204D3F4"
                BuildableName = "libPods-radar-Underscore.m.a"
                BlueprintName = "Pods-radar-Underscore.m"
                ReferencedContainer = "container:Pods.xcodeproj">
