@@ -8,16 +8,26 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#define EXP_SHORTHAND
+#import <Expecta/Expecta.h>
+#import "RDInterpreter.h"
+#import "RDBeaconRegion.h"
+#import <OCMock.h>
 
 @interface RDInterpreterTests : XCTestCase
-
+@property RDInterpreter *interpreter;
+@property RDBeaconRegion *region;
 @end
 
 @implementation RDInterpreterTests
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    _interpreter = [RDInterpreter new];
+    CLBeaconRegion *clRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[NSUUID UUID] identifier:@"shit"];
+    _region = [RDBeaconRegion regionFromCLBeaconRegion:clRegion];
+
 }
 
 - (void)tearDown {
@@ -25,16 +35,22 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+- (void)testContains {
+    
+    CLBeaconRegion *clRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[NSUUID UUID] identifier:@"shit"];
+    RDBeaconRegion *region1 = [RDBeaconRegion regionFromCLBeaconRegion:clRegion];
+    NSArray *array = @[region1];
+    RDBeaconRegion *region2 = [RDBeaconRegion regionFromCLBeaconRegion:clRegion];
+    
+    expect([array containsObject:region2]).to.beTruthy();
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+
+- (void)testInterpreter {
+    
+    RDInterpretedResult *result = [_interpreter resultForBeacons:nil inRegion:_region occupiedRegions:nil];
+    
+    expect(result).toNot.beNil();
 }
 
 @end

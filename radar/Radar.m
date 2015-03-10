@@ -9,6 +9,7 @@
 #import "Radar.h"
 #import <Underscore.h>
 #define _ Underscore
+#import "RDInterpreter.h"
 
 @implementation Radar
 
@@ -36,52 +37,24 @@
         didRangeBeacons:(NSArray *)beacons
                inRegion:(RDBeaconRegion *)region {
     
-    NSArray *regions = _.array(beacons)
-    .map( (id)^(CLBeacon *beacon) {
-        RDBeaconRegion *radRegion = [RDBeaconRegion regionFromCLBeaconRegion:region
-                                                       withMajor:beacon.major
-                                                        andMinor:beacon.minor];
-        radRegion.proximity = beacon.proximity;
-        return radRegion;
-    }).unwrap;
+    RDInterpreter *interpreter = [RDInterpreter new];
     
-    _.array(regions)
-    .each(^(RDBeaconRegion *rad) {
-       
-        if ( [self regionIsCurrentlyOccupied:rad] ) {
-            //we're already inside of this region
-            if ( [rad isWithinRegion:region]) {
-                //and we're still inside of this region
-                //do nothing
-            } else {
-                //we are currently outside of the distance threshold for this region
-                //remove from currently occupied regions
-                [self.currentlyOccupiedRegions[region.identifier] removeObject:rad];
-                //send a didExit update
-                [self.delegate locationManager:self.locationManager didExitRegion:rad];
-            }
-        } else {
-            //we are not currently inside of this region
-            if ( [rad isWithinRegion:region]) {
-                //but we are now,
-                //add to currently occupied regions
-                [self.currentlyOccupiedRegions[region.identifier] addObject:rad];
-                //send a didEnter update
-                [self.delegate locationManager:self.locationManager didEnterRegion:rad];
-            } else {
-                //although we are seeing this beacon, we're not close enough to be considered inside
-                //do nothing
-            }
-        }
+    
+    RDInterpretedResult *result = [interpreter resultForBeacons:beacons inRegion:region occupiedRegions:self.currentlyOccupiedRegions[region.identifier]];
+    
+    _.arrayEach(result.enteredRegions, ^(RDBeaconRegion *enteredRegion) {
+        
+        [self.currentlyOccupiedRegions[region.identifier] addObject:enteredRegion];
+        //send a didEnter update
+        [self.delegate locationManager:self.locationManager didEnterRegion:enteredRegion];
     });
     
-    //iterate through any beacons the app was inside, but weren't mentioned
-    //in this didRange request
-    _.array(_.without(self.currentlyOccupiedRegions[region.identifier], regions))
-    .each(^(RDBeaconRegion *regionNotRanged) {
-        //we are no longer in this region
-        [self.currentlyOccupiedRegions[region.identifier] removeObject:regionNotRanged];
-        [self.delegate locationManager:self.locationManager didExitRegion:regionNotRanged];
+    _.arrayEach(result.exitedREgions, ^(RDBeaconRegion *exitedRegion) {
+        
+        [self.currentlyOccupiedRegions[region.identifier] removeObject:exitedRegion];
+        //send a didExit update
+        [self.delegate locationManager:self.locationManager didExitRegion:exitedRegion];
+        
     });
     
     //delegate still receives the didRangeBeacons call
@@ -92,10 +65,6 @@
     }
 }
 
-- (BOOL)regionIsCurrentlyOccupied:(RDBeaconRegion *)region {
-    return _.find(self.currentlyOccupiedRegions[region.identifier], ^BOOL (RDBeaconRegion *radRegion) {
-        return [region.identifier isEqualToString:radRegion.identifier];
-    }) != nil;
-}
+
 
 @end

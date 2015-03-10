@@ -12,10 +12,7 @@
 		835A58081AAE8AA0000194A4 /* RDBeaconRegionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 835A58071AAE8AA0000194A4 /* RDBeaconRegionTests.m */; };
 		835A580D1AAF4DAB000194A4 /* RDInterpreter.h in Headers */ = {isa = PBXBuildFile; fileRef = 835A580B1AAF4DAB000194A4 /* RDInterpreter.h */; };
 		835A580E1AAF4DAB000194A4 /* RDInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 835A580C1AAF4DAB000194A4 /* RDInterpreter.m */; };
-		835A58111AAF4DC8000194A4 /* RDNotifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 835A580F1AAF4DC8000194A4 /* RDNotifier.h */; };
-		835A58121AAF4DC8000194A4 /* RDNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 835A58101AAF4DC8000194A4 /* RDNotifier.m */; };
 		835A58171AAF5520000194A4 /* RDInterpreterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 835A58161AAF5520000194A4 /* RDInterpreterTests.m */; };
-		835A58191AAF5534000194A4 /* RDNotifierTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 835A58181AAF5534000194A4 /* RDNotifierTests.m */; };
 		83628AF81AA8D22900FE3088 /* radar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83628AEC1AA8D22900FE3088 /* radar.framework */; };
 		83628B0C1AA8D2AA00FE3088 /* RDBeaconRegion.h in Headers */ = {isa = PBXBuildFile; fileRef = 83628B081AA8D2AA00FE3088 /* RDBeaconRegion.h */; };
 		83628B0D1AA8D2AA00FE3088 /* RDBeaconRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = 83628B091AA8D2AA00FE3088 /* RDBeaconRegion.m */; };
@@ -43,10 +40,7 @@
 		835A58091AAEB2D2000194A4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		835A580B1AAF4DAB000194A4 /* RDInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDInterpreter.h; sourceTree = "<group>"; };
 		835A580C1AAF4DAB000194A4 /* RDInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDInterpreter.m; sourceTree = "<group>"; };
-		835A580F1AAF4DC8000194A4 /* RDNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDNotifier.h; sourceTree = "<group>"; };
-		835A58101AAF4DC8000194A4 /* RDNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDNotifier.m; sourceTree = "<group>"; };
 		835A58161AAF5520000194A4 /* RDInterpreterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDInterpreterTests.m; sourceTree = "<group>"; };
-		835A58181AAF5534000194A4 /* RDNotifierTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDNotifierTests.m; sourceTree = "<group>"; };
 		83628AEC1AA8D22900FE3088 /* radar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = radar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83628AF01AA8D22900FE3088 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83628AF71AA8D22900FE3088 /* radarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = radarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,8 +126,6 @@
 				83628AEF1AA8D22900FE3088 /* Supporting Files */,
 				835A580B1AAF4DAB000194A4 /* RDInterpreter.h */,
 				835A580C1AAF4DAB000194A4 /* RDInterpreter.m */,
-				835A580F1AAF4DC8000194A4 /* RDNotifier.h */,
-				835A58101AAF4DC8000194A4 /* RDNotifier.m */,
 			);
 			path = radar;
 			sourceTree = "<group>";
@@ -153,7 +145,6 @@
 				835A58071AAE8AA0000194A4 /* RDBeaconRegionTests.m */,
 				83628AFC1AA8D22900FE3088 /* Supporting Files */,
 				835A58161AAF5520000194A4 /* RDInterpreterTests.m */,
-				835A58181AAF5534000194A4 /* RDNotifierTests.m */,
 			);
 			path = radarTests;
 			sourceTree = "<group>";
@@ -173,7 +164,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				835A58111AAF4DC8000194A4 /* RDNotifier.h in Headers */,
 				83628B0E1AA8D2AA00FE3088 /* Radar.h in Headers */,
 				83628B0C1AA8D2AA00FE3088 /* RDBeaconRegion.h in Headers */,
 				835A580D1AAF4DAB000194A4 /* RDInterpreter.h in Headers */,
@@ -346,7 +336,6 @@
 				835A580E1AAF4DAB000194A4 /* RDInterpreter.m in Sources */,
 				83628B0D1AA8D2AA00FE3088 /* RDBeaconRegion.m in Sources */,
 				83628B0F1AA8D2AA00FE3088 /* Radar.m in Sources */,
-				835A58121AAF4DC8000194A4 /* RDNotifier.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,7 +344,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				83628B111AA8D36500FE3088 /* RadarTests.m in Sources */,
-				835A58191AAF5534000194A4 /* RDNotifierTests.m in Sources */,
 				835A58081AAE8AA0000194A4 /* RDBeaconRegionTests.m in Sources */,
 				835A58171AAF5520000194A4 /* RDInterpreterTests.m in Sources */,
 			);

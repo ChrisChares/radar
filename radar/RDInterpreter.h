@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface RDInterpretedResult
+@class RDBeaconRegion;
+
+@interface RDInterpretedResult : NSObject
 
 @property NSArray *enteredRegions;
 @property NSArray *exitedREgions;
@@ -17,6 +19,8 @@
 
 @interface RDInterpreter : NSObject
 
-- (RDInterpretedResult *)resultForBeacons:(NSArray *)beacons occupiedRegions:(NSArray *)occupiedRegions;
+- (RDInterpretedResult *)resultForBeacons:(NSArray *)beacons
+                                 inRegion:(RDBeaconRegion *)region
+                          occupiedRegions:(NSArray *)occupiedRegions;
 
 @end
