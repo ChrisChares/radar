@@ -135,8 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				83628B101AA8D36500FE3088 /* RADBeaconManagerTests.m */,
-				83628AFC1AA8D22900FE3088 /* Supporting Files */,
 				835A58071AAE8AA0000194A4 /* RADBeaconRegionTests.m */,
+				83628AFC1AA8D22900FE3088 /* Supporting Files */,
 			);
 			path = radarTests;
 			sourceTree = "<group>";

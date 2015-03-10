@@ -11,8 +11,8 @@
 #import "RADBeaconManager.h"
 #define EXP_SHORTHAND
 #import <Expecta/Expecta.h>
-#import <Expecta+OCMock.h>
 #import <Specta/Specta.h>
+#import <OCMock/OCMock.h>
 
 @interface RADBeaconManagerTests : XCTestCase
 @property RADBeaconManager *beaconManager;
@@ -25,13 +25,6 @@
     
     _beaconManager = [RADBeaconManager new];
 }
-
-
-
-- (void)testMock {
-
-}
-
 
 - (void)testAddRemoveRegion {
     
@@ -47,6 +40,45 @@
     expect(_beaconManager.currentlyOccupiedRegions[region.identifier]).to.beNil();
 
 }
+
+
+- (void)testDidRangeBeaconsPassthrough {
+    
+    RADBeaconRegion *region = [[RADBeaconRegion alloc] initWithProximityUUID:[NSUUID UUID] identifier:@"hue"];
+    NSArray *array;
+    
+    id delegate = [OCMockObject mockForProtocol:@protocol(CLLocationManagerDelegate)];
+    _beaconManager.delegate = delegate;
+    [[delegate expect] locationManager:_beaconManager.locationManager didRangeBeacons:array inRegion:region];
+    [_beaconManager locationManager:nil didRangeBeacons:array inRegion:region];
+}
+
+
+- (void)testDidEnter {
+    
+    RADBeaconRegion *region = [[RADBeaconRegion alloc] initWithProximityUUID:[NSUUID UUID] identifier:@"hue"];
+    [_beaconManager startMonitoringBeaconsInRegion:region];
+    
+    
+    id beacon = [OCMockObject mockForClass:[CLBeacon class]];
+    OCMStub([beacon major]).andReturn(@5);
+    OCMStub([beacon minor]).andReturn(@3);
+    OCMStub([beacon proximityUUID]).andReturn(region.proximityUUID);
+    OCMStub([beacon proximity]).andReturn(CLProximityNear);
+    expect([beacon major]).to.equal(5);
+
+    NSArray *array = @[beacon];
+
+    id delegate = [OCMockObject mockForProtocol:@protocol(CLLocationManagerDelegate)];
+    _beaconManager.delegate = delegate;
+    [[delegate expect] locationManager:_beaconManager.locationManager didRangeBeacons:array inRegion:region];
+    [[delegate expect] locationManager:_beaconManager.locationManager didEnterRegion:region];
+    
+    [_beaconManager locationManager:nil didRangeBeacons:array inRegion:region];
+    
+    
+}
+
 
 
 @end

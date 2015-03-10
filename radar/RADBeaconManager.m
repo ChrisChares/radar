@@ -103,7 +103,15 @@
 }
 
 - (BOOL)beacon:(CLBeacon *)beacon isWithinRegion:(RADBeaconRegion *)region {
-    return beacon.proximityUUID == CLProximityUnknown ? false : beacon.proximity <= region.proximity;
+    if ( region.proximity == CLProximityUnknown ) {
+        //accept everything
+        return YES;
+    }
+    if ( beacon.proximity == CLProximityUnknown ) {
+        //beacon is unknown distance away
+        return NO;
+    }
+    return beacon.proximity <= region.proximity;
 }
 
 @end
