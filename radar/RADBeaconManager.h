@@ -15,7 +15,6 @@
 @property id<CLLocationManagerDelegate> delegate;
 
 @property CLLocationManager *locationManager;
-@property NSMutableArray *monitoredBeaconRegions;
 
 @property NSMutableArray *currentlyOccupiedRegions;
 
@@ -23,8 +22,5 @@
 - (void)stopMonitoringForBeaconRegion:(RADBeaconRegion *)region;
 
 
-
-//functions public for unit testing
-//- (RADBeaconRegion *)radRegionForCLBeaconRegion:(CLBeaconRegion *)region;
 
 @end

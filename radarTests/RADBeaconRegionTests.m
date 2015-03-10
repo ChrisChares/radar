@@ -35,10 +35,6 @@
     
     RADBeaconRegion *region1 = [RADBeaconRegion regionFromCLBeaconRegion:clRegion];
     RADBeaconRegion *region2 = [RADBeaconRegion regionFromCLBeaconRegion:clRegion];
-    
-    BOOL isEqual = region1 == region2;
-    BOOL isEqual2 = [region1 isEqual:region2];
-    
     expect([region1 isEqual:region2]).to.beTruthy();
     
 }

@@ -17,19 +17,16 @@
     if ( self ) {
         self.locationManager = [CLLocationManager new];
         self.locationManager.delegate = self;
-        self.monitoredBeaconRegions = [NSMutableArray new];
         self.currentlyOccupiedRegions = [NSMutableArray new];
     }
     return self;
 }
 
 - (void)startMonitoringForBeaconRegion:(RADBeaconRegion *)region {
-    [self.monitoredBeaconRegions addObject:[RADBeaconRegion regionFromCLBeaconRegion:region]];
     [self.locationManager startRangingBeaconsInRegion:region];
 }
 
 - (void)stopMonitoringForBeaconRegion:(RADBeaconRegion *)region {
-    [self.monitoredBeaconRegions removeObject:[RADBeaconRegion regionFromCLBeaconRegion:region]];
     [self.locationManager stopRangingBeaconsInRegion:region];
 }
 
