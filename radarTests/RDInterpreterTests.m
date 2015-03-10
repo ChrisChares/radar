@@ -31,13 +31,7 @@
 
 }
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
 - (void)testContains {
-    
     CLBeaconRegion *clRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[NSUUID UUID] identifier:@"shit"];
     RDBeaconRegion *region1 = [RDBeaconRegion regionFromCLBeaconRegion:clRegion];
     NSArray *array = @[region1];
@@ -46,8 +40,7 @@
 }
 
 
-- (void)testInterpreterNotNil {
-    
+- (void)testResultNotNil {
     RDInterpretedResult *result = [_interpreter resultForBeacons:nil inRegion:_region occupiedRegions:nil];
     expect(result).toNot.beNil();
 }
@@ -63,6 +56,8 @@
     id beacon = [self mockBeaconWithProximity:CLProximityImmediate];
     RDInterpretedResult *result = [_interpreter resultForBeacons:@[beacon] inRegion:_region occupiedRegions:@[]];
     expect(result.enteredRegions.count).to.equal(1);
+    expect(result.exitedREgions.count).to.equal(0);
+
 }
 
 - (void)testMultipleEnterRegion {
@@ -71,6 +66,39 @@
     
     RDInterpretedResult *result = [_interpreter resultForBeacons:@[beacon1, beacon2] inRegion:_region occupiedRegions:@[]];
     expect(result.enteredRegions.count).to.equal(2);
+    expect(result.exitedREgions.count).to.equal(0);
+}
+
+- (void)testExitRegion {
+    id beacon1 = [self mockBeaconWithProximity:CLProximityImmediate];
+
+    RDBeaconRegion *existingRegion = [RDBeaconRegion regionFromCLBeaconRegion:_region withMajor:[beacon1 major] andMinor:[beacon1 minor]];
+    RDInterpretedResult *result = [_interpreter resultForBeacons:@[] inRegion:_region occupiedRegions:@[existingRegion]];
+    
+    expect(result.enteredRegions.count).to.equal(0);
+    expect(result.exitedREgions.count).to.equal(1);
+}
+
+
+- (void)testStillInsideSameRegion {
+    id beacon1 = [self mockBeaconWithProximity:CLProximityImmediate];
+    
+    RDBeaconRegion *existingRegion = [RDBeaconRegion regionFromCLBeaconRegion:_region withMajor:[beacon1 major] andMinor:[beacon1 minor]];
+    RDInterpretedResult *result = [_interpreter resultForBeacons:@[beacon1] inRegion:_region occupiedRegions:@[existingRegion]];
+    
+    expect(result.enteredRegions.count).to.equal(0);
+    expect(result.exitedREgions.count).to.equal(0);
+}
+
+- (void)testEnterAndExitRegion {
+    id beacon1 = [self mockBeaconWithProximity:CLProximityImmediate];
+    id beacon2 = [self mockBeaconWithProximity:CLProximityNear];
+
+    RDBeaconRegion *existingRegion = [RDBeaconRegion regionFromCLBeaconRegion:_region withMajor:[beacon1 major] andMinor:[beacon1 minor]];
+    RDInterpretedResult *result = [_interpreter resultForBeacons:@[beacon2] inRegion:_region occupiedRegions:@[existingRegion]];
+    
+    expect(result.enteredRegions.count).to.equal(1);
+    expect(result.exitedREgions.count).to.equal(1);
 }
 
 

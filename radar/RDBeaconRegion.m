@@ -39,4 +39,16 @@
     return self.proximity <= region.proximity;
 }
 
+- (BOOL)isEqual:(id)object {
+    if ( ! [object isKindOfClass:[RDBeaconRegion class]] ) {
+        return NO;
+    }
+    RDBeaconRegion *robj = (RDBeaconRegion *)object;
+    
+    return [self.proximityUUID.UUIDString isEqualToString:robj.proximityUUID.UUIDString] &&
+        [self.major isEqualToNumber:robj.major] &&
+        [self.minor isEqualToNumber:robj.minor];
+}
+
+
 @end

@@ -59,4 +59,14 @@
     expect([unknown isWithinRegion:far]).to.beFalsy();
 }
 
+
+- (void)testEquality {
+    CLBeaconRegion *beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[NSUUID UUID] identifier:@"shit"];
+    RDBeaconRegion *region1 = [RDBeaconRegion regionFromCLBeaconRegion:beaconRegion withMajor:@5 andMinor:@12];
+    RDBeaconRegion *region2 = [RDBeaconRegion regionFromCLBeaconRegion:beaconRegion withMajor:@17 andMinor:@15];
+    
+    expect([region1 isEqual:region2]).toNot.beTruthy();
+
+}
+
 @end
