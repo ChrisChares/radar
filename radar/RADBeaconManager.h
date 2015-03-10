@@ -16,7 +16,7 @@
 
 @property CLLocationManager *locationManager;
 
-@property NSMutableArray *currentlyOccupiedRegions;
+@property NSMutableDictionary *currentlyOccupiedRegions;
 
 - (void)startMonitoringForBeaconRegion:(RADBeaconRegion *)region;
 - (void)stopMonitoringForBeaconRegion:(RADBeaconRegion *)region;

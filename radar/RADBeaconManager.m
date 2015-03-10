@@ -17,17 +17,20 @@
     if ( self ) {
         self.locationManager = [CLLocationManager new];
         self.locationManager.delegate = self;
-        self.currentlyOccupiedRegions = [NSMutableArray new];
+        self.currentlyOccupiedRegions = [NSMutableDictionary new];
     }
     return self;
 }
 
 - (void)startMonitoringForBeaconRegion:(RADBeaconRegion *)region {
+    self.currentlyOccupiedRegions[region.identifier] = [NSMutableArray new];
     [self.locationManager startRangingBeaconsInRegion:region];
+    
 }
 
 - (void)stopMonitoringForBeaconRegion:(RADBeaconRegion *)region {
     [self.locationManager stopRangingBeaconsInRegion:region];
+    [self.currentlyOccupiedRegions removeObjectForKey:region.identifier];
 }
 
 - (void)locationManager:(CLLocationManager *)manager
@@ -55,7 +58,7 @@
             } else {
                 //we are currently outside of the distance threshold for this region
                 //remove from currently occupied regions
-                [self.currentlyOccupiedRegions removeObject:d[@"region"]];
+                [self.currentlyOccupiedRegions[region.identifier] removeObject:d[@"region"]];
                 //send a didExit update
                 [self.delegate locationManager:self.locationManager didExitRegion:d[@"region"]];
             }
@@ -64,7 +67,7 @@
             if ( [self beacon:d[@"beacon"] isWithinRegion:d[@"region"]]) {
                 //but we are now,
                 //add to currently occupied regions
-                [self.currentlyOccupiedRegions addObject:d[@"region"]];
+                [self.currentlyOccupiedRegions[region.identifier] addObject:d[@"region"]];
                 //send a didEnter update
                 [self.delegate locationManager:self.locationManager didEnterRegion:d[@"region"]];
             } else {
@@ -76,12 +79,12 @@
     
     //iterate through any beacons the app was inside, but weren't mentioned
     //in this didRange request
-    _.array(_.without(self.currentlyOccupiedRegions, _.arrayMap(composite, ^id (NSDictionary *d) {
+    _.array(_.without(self.currentlyOccupiedRegions[region.identifier], _.arrayMap(composite, ^id (NSDictionary *d) {
         return d[@"region"];
     })))
     .each(^(RADBeaconRegion *regionNotRanged) {
         //we are no longer in this region
-        [self.currentlyOccupiedRegions removeObject:regionNotRanged];
+        [self.currentlyOccupiedRegions[region.identifier] removeObject:regionNotRanged];
         [self.delegate locationManager:self.locationManager didExitRegion:regionNotRanged];
     });
     
@@ -94,7 +97,7 @@
 }
 
 - (BOOL)regionIsCurrentlyOccupied:(RADBeaconRegion *)region {
-    return _.find(self.currentlyOccupiedRegions, ^BOOL (RADBeaconRegion *radRegion) {
+    return _.find(self.currentlyOccupiedRegions[region.identifier], ^BOOL (RADBeaconRegion *radRegion) {
         return [region.identifier isEqualToString:radRegion.identifier];
     }) != nil;
 }

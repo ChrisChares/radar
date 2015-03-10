@@ -39,10 +39,13 @@
     
     [_beaconManager startMonitoringForBeaconRegion:region];
 //    expect(_beaconManager.locationManager.monitoredRegions.count).to.equal(1);
+    expect(_beaconManager.currentlyOccupiedRegions[region.identifier]).toNot.beNil();
     
     [_beaconManager stopMonitoringForBeaconRegion:region];
     
     expect(_beaconManager.locationManager.monitoredRegions.count).to.equal(0);
+    expect(_beaconManager.currentlyOccupiedRegions[region.identifier]).to.beNil();
+
 }
 
 
