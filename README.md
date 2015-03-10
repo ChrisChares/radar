@@ -25,13 +25,18 @@ is called.
     }
 
 That beacon certainly had a major and minor, but you do not get that information in your delegate.  In
-fact it returns the exact CLBeaconRegion instance you supplied it.  
+fact it returns the exact CLBeaconRegion instance you supplied it. 
+
+Additionally, you can't specify a range for your CLBeaconRegion.  If you only wanted to be notified
+when within a couple feet of a particular beacon, tough luck.
 
 ##What does Radar do?
 
-Use Radar to get get full beacon data back with the same <CLLocationManagerDelegate> delegate.
+Use Radar to get get full beacon info back with the same <CLLocationManagerDelegate> delegate.  Optionally specify a minimum proximity
+before notifications are triggered.
 
     //...
+    region.proximity = CLProximityNear; //optional
     [radar startMonitoringBeaconRegion:region];
     //...
 
@@ -40,6 +45,9 @@ Use Radar to get get full beacon data back with the same <CLLocationManagerDeleg
         NSLog(@"%@", region.major); // real major
         NSLog(@"%@", region.minor); // real minor
     }
+
+Radar treats regions with non specific major/minor numbers as wildcards.  Monitoring a wildcard
+region will call didEnter and didExit seperately for every discovered region that matches the wildcard.
 
 ##Installation
 
