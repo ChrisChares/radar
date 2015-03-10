@@ -37,11 +37,11 @@
     
     RADBeaconRegion *region = [[RADBeaconRegion alloc] initWithProximityUUID:[NSUUID UUID] identifier:@"hue"];
     
-    [_beaconManager startMonitoringForBeaconRegion:region];
+    [_beaconManager startMonitoringBeaconsInRegion:region];
 //    expect(_beaconManager.locationManager.monitoredRegions.count).to.equal(1);
     expect(_beaconManager.currentlyOccupiedRegions[region.identifier]).toNot.beNil();
     
-    [_beaconManager stopMonitoringForBeaconRegion:region];
+    [_beaconManager stopMonitoringBeaconsInRegion:region];
     
     expect(_beaconManager.locationManager.monitoredRegions.count).to.equal(0);
     expect(_beaconManager.currentlyOccupiedRegions[region.identifier]).to.beNil();

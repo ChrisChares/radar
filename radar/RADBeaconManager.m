@@ -22,13 +22,13 @@
     return self;
 }
 
-- (void)startMonitoringForBeaconRegion:(RADBeaconRegion *)region {
+- (void)startMonitoringBeaconsInRegion:(RADBeaconRegion *)region {
     self.currentlyOccupiedRegions[region.identifier] = [NSMutableArray new];
     [self.locationManager startRangingBeaconsInRegion:region];
     
 }
 
-- (void)stopMonitoringForBeaconRegion:(RADBeaconRegion *)region {
+- (void)stopMonitoringBeaconsInRegion:(RADBeaconRegion *)region {
     [self.locationManager stopRangingBeaconsInRegion:region];
     [self.currentlyOccupiedRegions removeObjectForKey:region.identifier];
 }

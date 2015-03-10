@@ -18,9 +18,7 @@
 
 @property NSMutableDictionary *currentlyOccupiedRegions;
 
-- (void)startMonitoringForBeaconRegion:(RADBeaconRegion *)region;
-- (void)stopMonitoringForBeaconRegion:(RADBeaconRegion *)region;
-
-
+- (void)startMonitoringBeaconsInRegion:(RADBeaconRegion *)region;
+- (void)stopMonitoringBeaconsInRegion:(RADBeaconRegion *)region;
 
 @end
