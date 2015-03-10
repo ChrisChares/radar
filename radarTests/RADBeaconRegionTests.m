@@ -11,7 +11,7 @@
 #define EXP_SHORTHAND
 #import <Expecta/Expecta.h>
 
-#import "RADBeaconRegion.h"
+#import "RDBeaconRegion.h"
 
 @interface RADBeaconRegionTests : XCTestCase
 
@@ -33,8 +33,8 @@
     
     CLBeaconRegion *clRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[NSUUID UUID] identifier:@"shit"];
     
-    RADBeaconRegion *region1 = [RADBeaconRegion regionFromCLBeaconRegion:clRegion];
-    RADBeaconRegion *region2 = [RADBeaconRegion regionFromCLBeaconRegion:clRegion];
+    RDBeaconRegion *region1 = [RDBeaconRegion regionFromCLBeaconRegion:clRegion];
+    RDBeaconRegion *region2 = [RDBeaconRegion regionFromCLBeaconRegion:clRegion];
     expect([region1 isEqual:region2]).to.beTruthy();
     
 }
@@ -43,16 +43,16 @@
 - (void)testWithin {
     CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:[NSUUID UUID] identifier:@"hue"];
     
-    RADBeaconRegion *immediate = [RADBeaconRegion regionFromCLBeaconRegion:region];
+    RDBeaconRegion *immediate = [RDBeaconRegion regionFromCLBeaconRegion:region];
     immediate.proximity = CLProximityImmediate;
     
-    RADBeaconRegion *near = [RADBeaconRegion regionFromCLBeaconRegion:region];
+    RDBeaconRegion *near = [RDBeaconRegion regionFromCLBeaconRegion:region];
     near.proximity = CLProximityNear;
 
-    RADBeaconRegion *far = [RADBeaconRegion regionFromCLBeaconRegion:region];
+    RDBeaconRegion *far = [RDBeaconRegion regionFromCLBeaconRegion:region];
     far.proximity = CLProximityFar;
     
-    RADBeaconRegion *unknown = [RADBeaconRegion regionFromCLBeaconRegion:region];
+    RDBeaconRegion *unknown = [RDBeaconRegion regionFromCLBeaconRegion:region];
     unknown.proximity = CLProximityUnknown;
     
     expect([immediate isWithinRegion:near]).to.beTruthy();

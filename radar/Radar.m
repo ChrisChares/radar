@@ -22,19 +22,19 @@
     return self;
 }
 
-- (void)startMonitoringBeaconsInRegion:(RADBeaconRegion *)region {
+- (void)startMonitoringBeaconsInRegion:(RDBeaconRegion *)region {
     self.currentlyOccupiedRegions[region.identifier] = [NSMutableArray new];
     [self.locationManager startRangingBeaconsInRegion:region];
 }
 
-- (void)stopMonitoringBeaconsInRegion:(RADBeaconRegion *)region {
+- (void)stopMonitoringBeaconsInRegion:(RDBeaconRegion *)region {
     [self.locationManager stopRangingBeaconsInRegion:region];
     [self.currentlyOccupiedRegions removeObjectForKey:region.identifier];
 }
 
 - (void)locationManager:(CLLocationManager *)manager
         didRangeBeacons:(NSArray *)beacons
-               inRegion:(RADBeaconRegion *)region {
+               inRegion:(RDBeaconRegion *)region {
     
     NSArray *regions = _.array(beacons)
     .map( (id)^(CLBeacon *beacon) {
@@ -92,8 +92,8 @@
     }
 }
 
-- (BOOL)regionIsCurrentlyOccupied:(RADBeaconRegion *)region {
-    return _.find(self.currentlyOccupiedRegions[region.identifier], ^BOOL (RADBeaconRegion *radRegion) {
+- (BOOL)regionIsCurrentlyOccupied:(RDBeaconRegion *)region {
+    return _.find(self.currentlyOccupiedRegions[region.identifier], ^BOOL (RDBeaconRegion *radRegion) {
         return [region.identifier isEqualToString:radRegion.identifier];
     }) != nil;
 }

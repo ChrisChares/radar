@@ -6,28 +6,28 @@
 //  Copyright (c) 2015 Eunoia. All rights reserved.
 //
 
-#import "RADBeaconRegion.h"
+#import "RDBeaconRegion.h"
 
-@implementation RADBeaconRegion
+@implementation RDBeaconRegion
 
-+ (RADBeaconRegion *)regionFromCLBeaconRegion:(CLBeaconRegion *)region {
-    return [[RADBeaconRegion alloc] initWithProximityUUID:region.proximityUUID
++ (RDBeaconRegion *)regionFromCLBeaconRegion:(CLBeaconRegion *)region {
+    return [[RDBeaconRegion alloc] initWithProximityUUID:region.proximityUUID
                                                     major:region.major.shortValue
                                                     minor:region.minor.shortValue
                                                identifier:region.identifier];
 }
 
-+ (RADBeaconRegion *)regionFromCLBeaconRegion:(CLBeaconRegion *)region
++ (RDBeaconRegion *)regionFromCLBeaconRegion:(CLBeaconRegion *)region
                                     withMajor:(NSNumber *)major
                                      andMinor:(NSNumber *)minor {
     
-    return [[RADBeaconRegion alloc] initWithProximityUUID:region.proximityUUID
+    return [[RDBeaconRegion alloc] initWithProximityUUID:region.proximityUUID
                                                     major:major.shortValue
                                                     minor:minor.shortValue
                                                identifier:region.identifier];
 }
 
-- (BOOL)isWithinRegion:(RADBeaconRegion *)region {
+- (BOOL)isWithinRegion:(RDBeaconRegion *)region {
     if ( region.proximity == CLProximityUnknown ) {
         //accept everything
         return YES;

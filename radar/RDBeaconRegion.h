@@ -9,16 +9,16 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface RADBeaconRegion : CLBeaconRegion
+@interface RDBeaconRegion : CLBeaconRegion
 
 //beacon must be this close or closer to match the region
 @property (nonatomic) CLProximity proximity;
 
-+ (RADBeaconRegion *)regionFromCLBeaconRegion:(CLBeaconRegion *)region;
-+ (RADBeaconRegion *)regionFromCLBeaconRegion:(CLBeaconRegion *)region
++ (RDBeaconRegion *)regionFromCLBeaconRegion:(CLBeaconRegion *)region;
++ (RDBeaconRegion *)regionFromCLBeaconRegion:(CLBeaconRegion *)region
                                     withMajor:(NSNumber *)major
                                      andMinor:(NSNumber *)minor;
 
 
-- (BOOL)isWithinRegion:(RADBeaconRegion *)region;
+- (BOOL)isWithinRegion:(RDBeaconRegion *)region;
 @end

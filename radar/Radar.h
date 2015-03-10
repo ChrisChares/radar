@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
-#import "RADBeaconRegion.h"
+#import "RDBeaconRegion.h"
 
 @interface Radar : NSObject <CLLocationManagerDelegate>
 
@@ -16,7 +16,7 @@
 @property CLLocationManager *locationManager;
 @property NSMutableDictionary *currentlyOccupiedRegions;
 
-- (void)startMonitoringBeaconsInRegion:(RADBeaconRegion *)region;
-- (void)stopMonitoringBeaconsInRegion:(RADBeaconRegion *)region;
+- (void)startMonitoringBeaconsInRegion:(RDBeaconRegion *)region;
+- (void)stopMonitoringBeaconsInRegion:(RDBeaconRegion *)region;
 
 @end

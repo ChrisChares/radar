@@ -28,7 +28,7 @@
 
 - (void)testAddRemoveRegion {
     
-    RADBeaconRegion *region = [[RADBeaconRegion alloc] initWithProximityUUID:[NSUUID UUID] identifier:@"hue"];
+    RDBeaconRegion *region = [[RDBeaconRegion alloc] initWithProximityUUID:[NSUUID UUID] identifier:@"hue"];
     
     [_beaconManager startMonitoringBeaconsInRegion:region];
 //    expect(_beaconManager.locationManager.monitoredRegions.count).to.equal(1);
@@ -44,7 +44,7 @@
 
 - (void)testDidRangeBeaconsPassthrough {
     
-    RADBeaconRegion *region = [[RADBeaconRegion alloc] initWithProximityUUID:[NSUUID UUID] identifier:@"hue"];
+    RDBeaconRegion *region = [[RDBeaconRegion alloc] initWithProximityUUID:[NSUUID UUID] identifier:@"hue"];
     NSArray *array;
     
     id delegate = [OCMockObject mockForProtocol:@protocol(CLLocationManagerDelegate)];
@@ -56,7 +56,7 @@
 
 - (void)testDidEnter {
     
-    RADBeaconRegion *region = [[RADBeaconRegion alloc] initWithProximityUUID:[NSUUID UUID] identifier:@"hue"];
+    RDBeaconRegion *region = [[RDBeaconRegion alloc] initWithProximityUUID:[NSUUID UUID] identifier:@"hue"];
     [_beaconManager startMonitoringBeaconsInRegion:region];
     
     
