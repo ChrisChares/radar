@@ -18,11 +18,13 @@ notified every time you encounter any beacons with a certain UUID.
 You now walk in the vicinity of one of those beacons and your delegate's locationManager:didEnterRegion:
 is called.  
 
-    - (void)locationManager:(CLLocationManager *)lm didEnterRegion:(CLBeaconRegion):region {
-        NSLog(@"%@", region.uuid); // beaconUUID
-        NSLog(@"%@", region.major); // nil
-        NSLog(@"%@", region.minor); // nil
-    }
+```objective-c
+- (void)locationManager:(CLLocationManager *)lm didEnterRegion:(CLBeaconRegion):region {
+    NSLog(@"%@", region.uuid); // beaconUUID
+    NSLog(@"%@", region.major); // nil
+    NSLog(@"%@", region.minor); // nil
+}
+```
 
 That beacon certainly had a major and minor, but you do not get that information in your delegate.  In
 fact it returns the exact CLBeaconRegion instance you supplied it. 
@@ -32,22 +34,23 @@ when within a couple feet of a particular beacon, tough luck.
 
 ##What does Radar do?
 
-Use Radar to get get full beacon info back with the same <CLLocationManagerDelegate> delegate.  Optionally specify a minimum proximity
-before notifications are triggered.
+Use Radar to get get full beacon info back with the same <CLLocationManagerDelegate> delegate.  Optionally specify a required minimum proximity before notifications are triggered.
 
-    //...
-    region.proximity = CLProximityNear; //optional
-    [radar startMonitoringBeaconRegion:region];
-    //...
+```objective-c
+//...
+region.proximity = CLProximityNear; //optional
+[radar startMonitoringBeaconRegion:region];
+//...
 
-    - (void)locationManager:(CLLocationManager *)lm didEnterRegion:(CLBeaconRegion):region {
-        NSLog(@"%@", region.uuid); // beaconUUID
-        NSLog(@"%@", region.major); // real major
-        NSLog(@"%@", region.minor); // real minor
-    }
+- (void)locationManager:(CLLocationManager *)lm didEnterRegion:(CLBeaconRegion):region {
+    NSLog(@"%@", region.uuid); // beaconUUID
+    NSLog(@"%@", region.major); // real major
+    NSLog(@"%@", region.minor); // real minor
+}
+```
 
 Radar treats regions with non specific major/minor numbers as wildcards.  Monitoring a wildcard
-region will call didEnter and didExit seperately for every discovered region that matches the wildcard.
+region will call didEnter and didExit seperately for every matching sub-region.  
 
 ##Installation
 
