@@ -39,4 +39,27 @@
     
 }
 
+
+- (void)testWithin {
+    CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:[NSUUID UUID] identifier:@"hue"];
+    
+    RADBeaconRegion *immediate = [RADBeaconRegion regionFromCLBeaconRegion:region];
+    immediate.proximity = CLProximityImmediate;
+    
+    RADBeaconRegion *near = [RADBeaconRegion regionFromCLBeaconRegion:region];
+    near.proximity = CLProximityNear;
+
+    RADBeaconRegion *far = [RADBeaconRegion regionFromCLBeaconRegion:region];
+    far.proximity = CLProximityFar;
+    
+    RADBeaconRegion *unknown = [RADBeaconRegion regionFromCLBeaconRegion:region];
+    unknown.proximity = CLProximityUnknown;
+    
+    expect([immediate isWithinRegion:near]).to.beTruthy();
+    expect([near isWithinRegion:immediate]).to.beFalsy();
+    expect([near isWithinRegion:far]).to.beTruthy();
+    expect([far isWithinRegion:unknown]).to.beTruthy();
+    expect([unknown isWithinRegion:far]).to.beFalsy();
+}
+
 @end

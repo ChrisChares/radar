@@ -18,4 +18,16 @@
     return [[RADBeaconRegion alloc] initWithProximityUUID:region.proximityUUID major:major.shortValue minor:minor.shortValue identifier:region.identifier];
 }
 
+- (BOOL)isWithinRegion:(RADBeaconRegion *)region {
+    if ( region.proximity == CLProximityUnknown ) {
+        //accept everything
+        return YES;
+    }
+    if ( self.proximity == CLProximityUnknown ) {
+        //beacon is unknown distance away
+        return NO;
+    }
+    return self.proximity <= region.proximity;
+}
+
 @end
