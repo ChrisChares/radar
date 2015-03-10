@@ -10,7 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "RADBeaconRegion.h"
 
-@interface RADBeaconManager : NSObject <CLLocationManagerDelegate>
+@interface Radar : NSObject <CLLocationManagerDelegate>
 
 @property id<CLLocationManagerDelegate> delegate;
 

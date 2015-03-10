@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 Eunoia. All rights reserved.
 //
 
-#import "RADBeaconManager.h"
+#import "Radar.h"
 #import <Underscore.h>
 #define _ Underscore
 
-@implementation RADBeaconManager
+@implementation Radar
 
 - (id)init {
     self = [super init];

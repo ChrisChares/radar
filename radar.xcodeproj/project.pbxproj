@@ -10,12 +10,11 @@
 		3DFB23A673463219AEB15A6D /* libPods-radarTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D047D1EC6EE0EFBBE208C7 /* libPods-radarTests.a */; };
 		76D701E65920FD2902BFA0C2 /* libPods-radar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B4095C0D3766B4F975FCC7 /* libPods-radar.a */; };
 		835A58081AAE8AA0000194A4 /* RADBeaconRegionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 835A58071AAE8AA0000194A4 /* RADBeaconRegionTests.m */; };
-		83628AF21AA8D22900FE3088 /* radar.h in Headers */ = {isa = PBXBuildFile; fileRef = 83628AF11AA8D22900FE3088 /* radar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		83628AF81AA8D22900FE3088 /* radar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83628AEC1AA8D22900FE3088 /* radar.framework */; };
 		83628B0C1AA8D2AA00FE3088 /* RADBeaconRegion.h in Headers */ = {isa = PBXBuildFile; fileRef = 83628B081AA8D2AA00FE3088 /* RADBeaconRegion.h */; };
 		83628B0D1AA8D2AA00FE3088 /* RADBeaconRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = 83628B091AA8D2AA00FE3088 /* RADBeaconRegion.m */; };
-		83628B0E1AA8D2AA00FE3088 /* RADBeaconManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 83628B0A1AA8D2AA00FE3088 /* RADBeaconManager.h */; };
-		83628B0F1AA8D2AA00FE3088 /* RADBeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 83628B0B1AA8D2AA00FE3088 /* RADBeaconManager.m */; };
+		83628B0E1AA8D2AA00FE3088 /* Radar.h in Headers */ = {isa = PBXBuildFile; fileRef = 83628B0A1AA8D2AA00FE3088 /* Radar.h */; };
+		83628B0F1AA8D2AA00FE3088 /* Radar.m in Sources */ = {isa = PBXBuildFile; fileRef = 83628B0B1AA8D2AA00FE3088 /* Radar.m */; };
 		83628B111AA8D36500FE3088 /* RADBeaconManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83628B101AA8D36500FE3088 /* RADBeaconManagerTests.m */; };
 /* End PBXBuildFile section */
 
@@ -37,13 +36,12 @@
 		835A58071AAE8AA0000194A4 /* RADBeaconRegionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RADBeaconRegionTests.m; sourceTree = "<group>"; };
 		83628AEC1AA8D22900FE3088 /* radar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = radar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83628AF01AA8D22900FE3088 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		83628AF11AA8D22900FE3088 /* radar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = radar.h; sourceTree = "<group>"; };
 		83628AF71AA8D22900FE3088 /* radarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = radarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		83628AFD1AA8D22900FE3088 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83628B081AA8D2AA00FE3088 /* RADBeaconRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RADBeaconRegion.h; sourceTree = "<group>"; };
 		83628B091AA8D2AA00FE3088 /* RADBeaconRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RADBeaconRegion.m; sourceTree = "<group>"; };
-		83628B0A1AA8D2AA00FE3088 /* RADBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RADBeaconManager.h; sourceTree = "<group>"; };
-		83628B0B1AA8D2AA00FE3088 /* RADBeaconManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RADBeaconManager.m; sourceTree = "<group>"; };
+		83628B0A1AA8D2AA00FE3088 /* Radar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Radar.h; sourceTree = "<group>"; };
+		83628B0B1AA8D2AA00FE3088 /* Radar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Radar.m; sourceTree = "<group>"; };
 		83628B101AA8D36500FE3088 /* RADBeaconManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RADBeaconManagerTests.m; sourceTree = "<group>"; };
 		8D15576C5CA2FF221FE0C6B1 /* Pods-radar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-radar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-radar/Pods-radar.debug.xcconfig"; sourceTree = "<group>"; };
 		A5B4095C0D3766B4F975FCC7 /* libPods-radar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-radar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,9 +113,8 @@
 			children = (
 				83628B081AA8D2AA00FE3088 /* RADBeaconRegion.h */,
 				83628B091AA8D2AA00FE3088 /* RADBeaconRegion.m */,
-				83628B0A1AA8D2AA00FE3088 /* RADBeaconManager.h */,
-				83628B0B1AA8D2AA00FE3088 /* RADBeaconManager.m */,
-				83628AF11AA8D22900FE3088 /* radar.h */,
+				83628B0A1AA8D2AA00FE3088 /* Radar.h */,
+				83628B0B1AA8D2AA00FE3088 /* Radar.m */,
 				83628AEF1AA8D22900FE3088 /* Supporting Files */,
 			);
 			path = radar;
@@ -156,9 +153,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83628B0E1AA8D2AA00FE3088 /* RADBeaconManager.h in Headers */,
+				83628B0E1AA8D2AA00FE3088 /* Radar.h in Headers */,
 				83628B0C1AA8D2AA00FE3088 /* RADBeaconRegion.h in Headers */,
-				83628AF21AA8D22900FE3088 /* radar.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,7 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83628B0D1AA8D2AA00FE3088 /* RADBeaconRegion.m in Sources */,
-				83628B0F1AA8D2AA00FE3088 /* RADBeaconManager.m in Sources */,
+				83628B0F1AA8D2AA00FE3088 /* Radar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

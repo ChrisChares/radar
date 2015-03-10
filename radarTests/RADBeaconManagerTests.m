@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
-#import "RADBeaconManager.h"
+#import "Radar.h"
 #define EXP_SHORTHAND
 #import <Expecta/Expecta.h>
 #import <Specta/Specta.h>
 #import <OCMock/OCMock.h>
 
 @interface RADBeaconManagerTests : XCTestCase
-@property RADBeaconManager *beaconManager;
+@property Radar *beaconManager;
 @end
 
 @implementation RADBeaconManagerTests
@@ -23,7 +23,7 @@
 - (void)setUp {
     [super setUp];
     
-    _beaconManager = [RADBeaconManager new];
+    _beaconManager = [Radar new];
 }
 
 - (void)testAddRemoveRegion {
