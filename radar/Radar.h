@@ -13,9 +13,7 @@
 @interface Radar : NSObject <CLLocationManagerDelegate>
 
 @property id<CLLocationManagerDelegate> delegate;
-
 @property CLLocationManager *locationManager;
-
 @property NSMutableDictionary *currentlyOccupiedRegions;
 
 - (void)startMonitoringBeaconsInRegion:(RADBeaconRegion *)region;

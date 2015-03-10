@@ -25,7 +25,6 @@
 - (void)startMonitoringBeaconsInRegion:(RADBeaconRegion *)region {
     self.currentlyOccupiedRegions[region.identifier] = [NSMutableArray new];
     [self.locationManager startRangingBeaconsInRegion:region];
-    
 }
 
 - (void)stopMonitoringBeaconsInRegion:(RADBeaconRegion *)region {
