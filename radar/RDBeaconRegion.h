@@ -19,6 +19,5 @@
                                     withMajor:(NSNumber *)major
                                      andMinor:(NSNumber *)minor;
 
-
 - (BOOL)isWithinRegion:(RDBeaconRegion *)region;
 @end

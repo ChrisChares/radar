@@ -14,11 +14,11 @@
 #import <Specta/Specta.h>
 #import <OCMock/OCMock.h>
 
-@interface RADBeaconManagerTests : XCTestCase
+@interface RadarTests : XCTestCase
 @property Radar *beaconManager;
 @end
 
-@implementation RADBeaconManagerTests
+@implementation RadarTests
 
 - (void)setUp {
     [super setUp];

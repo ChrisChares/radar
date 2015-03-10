@@ -38,7 +38,7 @@
     
     NSArray *regions = _.array(beacons)
     .map( (id)^(CLBeacon *beacon) {
-        RADBeaconRegion *radRegion = [RADBeaconRegion regionFromCLBeaconRegion:region
+        RDBeaconRegion *radRegion = [RDBeaconRegion regionFromCLBeaconRegion:region
                                                        withMajor:beacon.major
                                                         andMinor:beacon.minor];
         radRegion.proximity = beacon.proximity;
@@ -46,7 +46,7 @@
     }).unwrap;
     
     _.array(regions)
-    .each(^(RADBeaconRegion *rad) {
+    .each(^(RDBeaconRegion *rad) {
        
         if ( [self regionIsCurrentlyOccupied:rad] ) {
             //we're already inside of this region
@@ -78,7 +78,7 @@
     //iterate through any beacons the app was inside, but weren't mentioned
     //in this didRange request
     _.array(_.without(self.currentlyOccupiedRegions[region.identifier], regions))
-    .each(^(RADBeaconRegion *regionNotRanged) {
+    .each(^(RDBeaconRegion *regionNotRanged) {
         //we are no longer in this region
         [self.currentlyOccupiedRegions[region.identifier] removeObject:regionNotRanged];
         [self.delegate locationManager:self.locationManager didExitRegion:regionNotRanged];

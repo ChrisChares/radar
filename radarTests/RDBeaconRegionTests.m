@@ -13,11 +13,11 @@
 
 #import "RDBeaconRegion.h"
 
-@interface RADBeaconRegionTests : XCTestCase
+@interface RDBeaconRegionTests : XCTestCase
 
 @end
 
-@implementation RADBeaconRegionTests
+@implementation RDBeaconRegionTests
 
 - (void)setUp {
     [super setUp];
@@ -30,13 +30,10 @@
 }
 
 - (void)testIsEqual {
-    
     CLBeaconRegion *clRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[NSUUID UUID] identifier:@"shit"];
-    
     RDBeaconRegion *region1 = [RDBeaconRegion regionFromCLBeaconRegion:clRegion];
     RDBeaconRegion *region2 = [RDBeaconRegion regionFromCLBeaconRegion:clRegion];
     expect([region1 isEqual:region2]).to.beTruthy();
-    
 }
 
 
